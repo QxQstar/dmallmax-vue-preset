@@ -1,0 +1,15 @@
+{
+  "useConfigFiles": true,
+  "cssPreprocessor": "less",
+  "plugins": {
+    "@vue/cli-plugin-babel": {},
+    "@vue/cli-plugin-eslint": {}
+  },
+  "configs": {
+    "vue": {
+      "publicPath": "/",
+      "outputDir": "dist",
+      "lintOnSave": false
+    }
+  }
+}

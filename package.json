@@ -1,0 +1,15 @@
+{
+  "name": "dmallmax-vue-preset",
+  "version": "1.0.0",
+  "description": "vue 项目初始化模板",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QxQstar/dmallmax-vue-preset.git"
+  },
+  "author": "何遇",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QxQstar/dmallmax-vue-preset/issues"
+  },
+  "homepage": "https://github.com/QxQstar/dmallmax-vue-preset#readme"
+}

@@ -5,8 +5,8 @@ module.exports = {
     node: true,
     es6: true,
   },
-  parser: 'babel-eslint',
   parserOptions: {
+    parser: 'babel-eslint',
     sourceType: 'module'
   },
   extends: [

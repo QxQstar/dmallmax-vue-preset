@@ -7,7 +7,7 @@
     "url": "git+https://github.com/QxQstar/dmallmax-vue-preset.git"
   },
   "scripts": {
-    "lint": "eslint --fix generator/**/*.js",
+    "lint": "eslint --fix generator/**/*.{js,vue}",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "devDependencies": {

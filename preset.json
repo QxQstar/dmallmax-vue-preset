@@ -10,7 +10,7 @@
     "vue": {
       "publicPath": "/",
       "outputDir": "dist",
-      "lintOnSave": false
+      "lintOnSave": "error"
     }
   }
 }

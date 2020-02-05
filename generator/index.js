@@ -9,7 +9,8 @@ module.exports = (api) => {
       "ghooks": "^2.0.4",
       "validate-commit-msg": "^2.14.0",
       "fis3": "^3.4.41",
-      "babel-plugin-component":"^1.1.1"
+      "babel-plugin-component":"^1.1.1",
+      "lint-staged": "^8.1.5"
     },
     dependencies:{
       "lodash": "^4.17.15",
@@ -18,8 +19,15 @@ module.exports = (api) => {
     },
     config: {
         "ghooks": {
+            "pre-commit": "lint-staged",
             "commit-msg": "validate-commit-msg"
         }
+    },
+    "lint-staged": {
+      "src/**/*.{js,vue}": [
+        "npm run lint",
+        "git add"
+      ]
     },
   });
   api.render('./template')

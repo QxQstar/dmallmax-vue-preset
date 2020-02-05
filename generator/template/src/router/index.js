@@ -21,7 +21,7 @@ routeContext.keys().forEach(key => {
   if(key.startsWith('./index')) {
       return
   }
-  const routeModule = routeContext(key);
+  const routeModule = routeContext(key).default || [];
   if(Array.isArray(routeModule)) {
     routeModule.forEach(classifyRoute)
   } else {

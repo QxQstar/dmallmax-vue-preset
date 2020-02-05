@@ -4,5 +4,5 @@ export default {
   meta:{
     fullPage:false, // 是否全屏
   },
-  component: () => import(/* webpackChunkName: "home" */ '@/view/home/main.vue')
+  component: () => import(/* webpackChunkName: "home" */ '@/views/home/main.vue')
 }

@@ -6,7 +6,7 @@ module.exports = (api) => {
       "dev": "npm run serve"
     },
     devDependencies:{
-      "ghook": "^2.0.4",
+      "ghooks": "^2.0.4",
       "validate-commit-msg": "^2.14.0",
       "fis3": "^3.4.41",
       "babel-plugin-component":"^1.1.1"
@@ -14,6 +14,7 @@ module.exports = (api) => {
     dependencies:{
       "lodash": "^4.17.15",
       "element-ui": "^2.12.0",
+      "vue-router": "^3.1.3",
     },
     config: {
         "ghooks": {

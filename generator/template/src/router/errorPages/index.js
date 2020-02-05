@@ -4,20 +4,20 @@ export default [
     meta:{
       fullPage:true // 是否全屏
     },
-    component: () => import(/* webpackChunkName: "404" */ '@/view/errorPages/404.vue')
+    component: () => import(/* webpackChunkName: "404" */ '@/views/errorPages/404.vue')
   },
   {
     path:'/401',
     meta:{
       fullPage:true
     },
-    component: () => import(/* webpackChunkName: "404" */ '@/view/errorPages/401.vue')
+    component: () => import(/* webpackChunkName: "404" */ '@/views/errorPages/401.vue')
   },
   {
-    name:'*',
+    path:'*',
     meta:{
       fullPage:true
     },
-    component: () => import(/* webpackChunkName: "404" */ '@/view/errorPages/404.vue')
+    component: () => import(/* webpackChunkName: "404" */ '@/views/errorPages/404.vue')
   }
 ]

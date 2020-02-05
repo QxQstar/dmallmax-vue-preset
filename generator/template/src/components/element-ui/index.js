@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import {
+    Pagination,
+    Table,
+    TableColumn,
     Loading,
     MessageBox,
     Notification,
@@ -17,6 +20,11 @@ import {
     Form,
     FormItem,
 } from 'element-ui';
+
+// 全局注册基本组件
+Vue.use(Pagination);
+Vue.use(Table);
+Vue.use(TableColumn)
 Vue.use(Input);
 Vue.use(Radio);
 Vue.use(RadioGroup);

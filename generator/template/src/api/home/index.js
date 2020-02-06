@@ -1,5 +1,5 @@
-import $http from '@/lib/fetch.js';
+import {fetch} from '@/lib/http.js';
 
 export function getBasicData(param) {
-    return $http(param);
+    return fetch(param);
 }

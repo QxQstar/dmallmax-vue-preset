@@ -1,15 +1,21 @@
 <template>
-  <router-view />
+  <div class="g-layout">
+    <header-bar />
+    <div class="g-container">
+      <slide-bar />
+      <app-main />
+    </div>
+  </div>
 </template>
 
 <script>
+    import headerBar from './components/headerBar/main.vue'
+    import slideBar from './components/slideBar/main.vue'
+    import appMain from './components/appMain.vue'
     export default {
-        data() {
-            return {}
-        }
+      components:{headerBar,slideBar,appMain},
+      data() {
+          return {}
+      }
     }
 </script>
-
-<style scoped>
-
-</style>

@@ -1,7 +1,7 @@
 <template>
   <div class="g-layout">
     <header-bar />
-    <div class="g-container">
+    <div class="g-container elem_1x">
       <slide-bar />
       <app-main />
     </div>

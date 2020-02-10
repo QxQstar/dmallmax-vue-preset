@@ -1,15 +1,50 @@
 <template>
-  <div class="g-header">
-    header
+  <div class="g-header elem_no-scale">
+    <div class="header-main elem_1x">
+      <div class="logo elem_no-scale">
+        <img
+          class="logo__img"
+          src="../../../assets/images/h_dmall.png"
+        >
+      </div>
+      <ul class="nav-box elem_1x">
+        <li
+          v-for="(navItem,key) in data"
+          :key="key"
+          class="nav-box__nav"
+          :class="{'nav-box__nav_active':activeTopNav === key}"
+          @click="handleChangeNav(key)"
+        >
+          {{ navItem.name }}
+        </li>
+      </ul>
+    </div>
+    <div class="account-box elem_no-scale">
+      退出登录
+    </div>
   </div>
 </template>
 
 <script>
-    export default {
-        data() {
-            return {}
+  import { getTopMenu } from '@/lib/menu.js'
+  import { mapState } from 'vuex'
+  export default {
+    data() {
+        return {
+          data:getTopMenu() || []
         }
+    },
+    computed:{
+      ...mapState({
+        activeTopNav:state => state.menu.activeTopNav,
+      })
+    },
+    methods:{
+      handleChangeNav(index) {
+        this.$store.commit('menu/SET_ACTIVE_TOP_NAV', index)
+      }
     }
+  }
 </script>
 
 <style scoped>

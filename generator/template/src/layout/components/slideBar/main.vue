@@ -1,6 +1,6 @@
 <template>
   <div
-    class="g-slider"
+    class="g-slider elem_no-scale"
     :class="['g-slider_'+sliderSize]"
   >
     <div class="g-slider-inner">

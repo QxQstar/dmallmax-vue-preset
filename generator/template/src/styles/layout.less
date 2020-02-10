@@ -1,5 +1,6 @@
 @import "./variables.less";
 
+/* layout */
 .g-layout{
   height: 100%;
   display: flex;
@@ -8,20 +9,15 @@
 .g-header{
   background-color: @top-nav-bg-color;
   height: @top-nav-height;
-  flex-shrink: 0;
-  flex-grow: 0;
   line-height: @top-nav-height;
   color: #ffffff;
 }
 .g-container{
   display: flex;
-  flex: 1;
 }
 
 .g-slider{
   background-color: @slide-bg-color;
-  flex-grow: 0;
-  flex-shrink: 0;
   padding-top: @main-padding;
   padding-bottom: @main-padding;
 }
@@ -32,6 +28,49 @@
   width: @small-slide-width;
 }
 .g-main-content{
-  flex: 1;
   padding: @small-padding;
+}
+
+/* header */
+
+.g-header {
+  display: flex;
+  padding: 0 @main-padding;
+  justify-content: space-between;
+  .logo{
+    .logo__img{
+      height: 80%;
+    }
+  }
+  .header-main{
+    display: flex;
+  }
+  .nav-box{
+    font-size: 0;
+    .nav-box__nav{
+      position: relative;
+      display: inline-block;
+      font-size: @main-font-size;
+      color: #ffffff;
+      opacity: 0.8;
+      margin: 0 @small-padding;
+      cursor: pointer;
+    }
+    .nav-box__nav_active,
+    .nav-box__nav:hover {
+      opacity: 1;
+    }
+    .nav-box__nav_active:after{
+      content: '';
+      height: 2px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 10px;
+      background-color: #ffffff;
+    }
+  }
+  .account-box{
+
+  }
 }

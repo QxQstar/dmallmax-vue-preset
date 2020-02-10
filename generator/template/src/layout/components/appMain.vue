@@ -1,5 +1,5 @@
 <template>
-  <div class="g-main-content">
+  <div class="g-main-content elem_1x">
     <router-view />
   </div>
 </template>

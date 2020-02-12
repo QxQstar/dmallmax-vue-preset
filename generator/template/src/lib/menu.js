@@ -1,5 +1,6 @@
-import storage from '@/lib/storage'
+import storage from '@/lib/localStorage'
 import { fetchMenu } from "@/api"
+import { isExternal } from "./validate";
 
 export function getTopMenu() {
   return storage.get('topMenu')
@@ -37,4 +38,18 @@ export async function ifFetchMenu(refresh) {
   } else {
     return Promise.resolve(oldData)
   }
+}
+
+
+/**
+ * 解析跳转路径
+ * @param path 路径
+ * @param belong 路径所属的系统
+ * @returns {*}
+ */
+export function resolvePath(path,belong) {
+  if(!path) return ''
+  if (isExternal(path)) return path
+  belong = ''
+  return  belong + path
 }

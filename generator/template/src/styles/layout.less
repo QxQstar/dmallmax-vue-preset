@@ -14,12 +14,20 @@
 }
 .g-container{
   display: flex;
+  overflow: auto;
 }
 
 .g-slider{
   background-color: @slide-bg-color;
   padding-top: @main-padding;
   padding-bottom: @main-padding;
+  .g-slider-inner{
+    height: 100%;
+    // reset element-ui css
+    .el-menu{
+      background-color: transparent;
+    }
+  }
 }
 .g-slider_large{
   width: @large-slide-width;
@@ -39,7 +47,8 @@
   justify-content: space-between;
   .logo{
     .logo__img{
-      height: 80%;
+      max-height: 70%;
+      vertical-align: middle;
     }
   }
   .header-main{

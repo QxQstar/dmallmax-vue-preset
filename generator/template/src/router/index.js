@@ -59,7 +59,7 @@ const router = createRouter();
 // 路由守卫
 router.beforeEach(async (to,from,next) => {
   if(isLogin() || to.meta.noAuth) {
-    await Promise.all(ifFetchMenu());
+    await Promise.all([ifFetchMenu()]);
     next();
   } else {
     next({

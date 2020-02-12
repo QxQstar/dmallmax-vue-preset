@@ -4,20 +4,40 @@
     :class="['g-slider_'+sliderSize]"
   >
     <div class="g-slider-inner">
-      slider bar
+      <el-scrollbar wrap-class="scrollbar-wrapper">
+        <el-menu
+          :unique-opened="false"
+          :collapse-transition="false"
+          mode="vertical"
+        >
+          <sidebar-item
+            v-for="(route,index) in data"
+            :key="index"
+            :uniq-index="index + ''"
+            :item="route"
+          />
+        </el-menu>
+      </el-scrollbar>
     </div>
   </div>
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-              // 可选值 large,small
-              sliderSize:'large'
-            }
+  import SidebarItem from './SidebarItem'
+  import {getSlidMenu} from "@/lib/menu";
+
+  export default {
+    components: { SidebarItem },
+    data() {
+        return {
+          data:getSlidMenu(),
+          // 可选值 large,small
+          sliderSize:'large'
         }
+    },
+    computed:{
     }
+  }
 </script>
 
 <style scoped>

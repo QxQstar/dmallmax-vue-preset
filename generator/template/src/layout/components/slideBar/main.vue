@@ -31,7 +31,7 @@
     data() {
         return {
           data:getSlidMenu(),
-          // 可选值 large,small
+          // 可选值 large,small,hidden
           sliderSize:'large'
         }
     },

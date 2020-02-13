@@ -29,11 +29,11 @@
   export default {
     components: { SidebarItem },
     data() {
-        return {
-          data:getSlidMenu(),
-          // 可选值 large,small,hidden
-          sliderSize:'large'
-        }
+      return {
+        data:getSlidMenu(),
+        // 可选值 large,small,hidden
+        sliderSize:'large'
+      }
     },
     computed:{
     }

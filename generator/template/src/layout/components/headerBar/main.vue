@@ -7,6 +7,7 @@
           src="../../../assets/images/h_dmall.png"
         >
       </div>
+      <!-- nav -->
       <ul class="nav-box elem_1x">
         <li
           v-for="(navItem,key) in data"
@@ -19,16 +20,16 @@
         </li>
       </ul>
     </div>
-    <div class="account-box elem_no-scale">
-      退出登录
-    </div>
+    <account />
   </div>
 </template>
 
 <script>
   import { getTopMenu } from '@/lib/menu.js'
   import { mapState } from 'vuex'
+  import account from './account'
   export default {
+    components:{ account },
     data() {
         return {
           data:getTopMenu() || []

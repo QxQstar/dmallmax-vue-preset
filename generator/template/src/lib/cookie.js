@@ -32,7 +32,7 @@ export default {
     const group = document.cookie.split(';');
     group.forEach(item => {
       const key = item.split('=');
-      this.del(key);
+      this.del(key[0].trim());
     })
   }
 }

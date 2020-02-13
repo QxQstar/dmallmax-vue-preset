@@ -1,8 +1,12 @@
-export default {
-  name:'home',
-  path:'/home',
-  meta:{
-    fullPage:false, // 是否全屏
+export default [
+  // 根路径显示的页面
+  {
+    path:'',
+    component: () => import(/* webpackChunkName: "home" */ '@/views/home/main.vue')
   },
-  component: () => import(/* webpackChunkName: "home" */ '@/views/home/main.vue')
-}
+  {
+    name:'home',
+    path:'/home',
+    component: () => import(/* webpackChunkName: "home" */ '@/views/home/main.vue')
+  }
+]

@@ -14,7 +14,9 @@ module.exports = (api) => {
     },
     dependencies:{
       "lodash": "^4.17.15",
-      "element-ui": "^2.12.0",
+      "element-ui": "^2.13.0",
+      "element-theme": "^2.0.1",
+      "element-theme-chalk": "^2.13.0",
       "vue-router": "^3.1.3",
       "axios":"^0.19.2",
       "qs":"^6.9.1"

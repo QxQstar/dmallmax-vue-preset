@@ -19,7 +19,7 @@ export function setSlidMenu(value) {
 
 /**
  * 获取菜单数据
- * @param refresh
+ * @param refresh 是否更新保存在缓存中的数据
  * @returns {Promise<any>}
  */
 export async function ifFetchMenu(refresh) {

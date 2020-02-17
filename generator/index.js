@@ -19,7 +19,8 @@ module.exports = (api) => {
       "element-theme-chalk": "^2.13.0",
       "vue-router": "^3.1.3",
       "axios":"^0.19.2",
-      "qs":"^6.9.1"
+      "qs":"^6.9.1",
+      "clipboard": "2.0.4",
     },
     config: {
         "ghooks": {

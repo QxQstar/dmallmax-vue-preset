@@ -1,5 +1,8 @@
 <template>
-  <div id="app">
+  <div
+    id="app"
+    class="<%= rootOptions.projectName %>-project"
+  >
     <router-view />
   </div>
 </template>

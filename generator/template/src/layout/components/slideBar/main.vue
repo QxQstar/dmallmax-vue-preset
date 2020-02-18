@@ -24,13 +24,13 @@
 
 <script>
   import SidebarItem from './SidebarItem'
-  import {getSlidMenu} from "@/lib/menu";
+  import menuHelper from "@/lib/menu";
 
   export default {
     components: { SidebarItem },
     data() {
       return {
-        data:getSlidMenu(),
+        data:menuHelper.getSlidMenu(),
         // 可选值 large,small,hidden
         sliderSize:'large'
       }

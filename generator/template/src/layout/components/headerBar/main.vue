@@ -25,14 +25,14 @@
 </template>
 
 <script>
-  import { getTopMenu } from '@/lib/menu.js'
+  import menuHelper from '@/lib/menu.js'
   import { mapState } from 'vuex'
   import account from './account'
   export default {
     components:{ account },
     data() {
         return {
-          data:getTopMenu() || []
+          data:menuHelper.getTopMenu() || []
         }
     },
     computed:{

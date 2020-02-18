@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Layout from '@/layout/main.vue'
 import { isLogin } from "@/lib/account"
 import QS from 'qs';
-import { ifFetchMenu } from '@/lib/menu'
+import menuHelper from '@/lib/menu'
 
 Vue.use(Router);
 
@@ -81,7 +81,7 @@ const router = createRouter();
 // 路由守卫
 router.beforeEach(async (to,from,next) => {
   if(isLogin() || to.meta.noAuth) {
-    await Promise.all([ifFetchMenu()]);
+    await Promise.all([menuHelper.ifFetchMenu()]);
     if(!routes.isValidPath(to.fullPath)) {
       next({
         path:routes.getValidPath(to.fullPath),

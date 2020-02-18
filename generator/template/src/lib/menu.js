@@ -1,44 +1,53 @@
-import storage from '@/lib/localStorage'
 import { fetchMenu } from "@/api"
-import { isExternal } from "./validate";
+import { isExternal } from "./validate"
 
-export function getTopMenu() {
-  return storage.get('topMenu')
-}
-export function setTopMenu(value) {
-  return storage.set('topMenu',value)
-}
+let topMenu = '',
+  slidMenu = ''
+const menuObj = {
+  getTopMenu() {
+    return topMenu
+  },
+  getSlidMenu() {
+    return slidMenu
+  },
+  setTopMenu(value) {
+    topMenu = value;
+  },
+  setSlidMenu(value) {
+    slidMenu = value
+  },
+  /**
+   * 获取菜单数据
+   * @param {Boolean} isRefresh: 是否从接口中获取
+   * @returns {Promise<{slidMenu: (*|string), topMenu: (*|string)}>}
+   */
+  async ifFetchMenu(isRefresh = false) {
+    if( !menuObj.getSlidMenu() || isRefresh ) {
 
-export function getSlidMenu() {
-  return storage.get('slidMenu')
-}
+      const { list } = await fetchMenu()
 
-export function setSlidMenu(value) {
-  return storage.set('slidMenu',value)
-}
+      const topNav = list.map(item => {
+        const newItem = Object.assign({},item);
+        delete newItem.children;
+        return newItem
+      })
 
-/**
- * 获取菜单数据
- * @param refresh 是否更新保存在缓存中的数据
- * @returns {Promise<any>}
- */
-export async function ifFetchMenu(refresh) {
-  const oldData = getSlidMenu()
-  if( !oldData || refresh ) {
-    const { list } = await fetchMenu()
-    const topNav = list.map(item => {
-      const newItem = Object.assign({},item);
-      delete newItem.children;
-      return newItem
-    })
+      menuObj.setSlidMenu(list)
+      menuObj.setTopMenu(topNav)
 
-    setSlidMenu(list)
-    setTopMenu(topNav)
-    return Promise.resolve(list)
-  } else {
-    return Promise.resolve(oldData)
+      return Promise.resolve({
+        topMenu:menuObj.getTopMenu(),
+        slidMenu:menuObj.getSlidMenu()
+      })
+    } else {
+      return Promise.resolve({
+        topMenu:menuObj.getTopMenu(),
+        slidMenu:menuObj.getSlidMenu()
+      })
+    }
   }
 }
+
 
 
 /**
@@ -47,9 +56,16 @@ export async function ifFetchMenu(refresh) {
  * @param belong 路径所属的系统
  * @returns {*}
  */
-export function resolvePath(path,belong) {
+function resolvePath(path,belong) {
   if(!path) return ''
   if (isExternal(path)) return path
   belong = ''
   return  belong + path
 }
+
+
+export {
+  resolvePath
+}
+
+export default menuObj

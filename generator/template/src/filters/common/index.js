@@ -65,9 +65,41 @@ function uppercaseFirst(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
+/**
+ * 小写金额转大写
+ * @param num
+ * @returns {string}
+ */
+function changeMoney(num) {
+  if(isNaN(num)) return "";
+
+  let strPrefix = "";
+  if(num < 0) strPrefix = "(负)";
+  num = Math.abs(num);
+  if(num >= 1000000000000)return "";
+
+  let strOutput = "";
+  let strUnit = '仟佰拾亿仟佰拾万仟佰拾元角分';
+  const strCapDgt='零壹贰叁肆伍陆柒捌玖';
+  num += "00";
+  const intPos = num.indexOf('.');
+
+  if (intPos >= 0){
+    num = num.substring(0, intPos) + num.substr(intPos + 1, 2);
+  }
+  strUnit = strUnit.substr(strUnit.length - num.length);
+
+  for (let i=0; i < num.length; i++){
+    strOutput += strCapDgt.substr(num.substr(i,1),1) + strUnit.substr(i,1);
+  }
+  return strPrefix + strOutput.replace(/零角零分$/, '整').replace(/零[仟佰拾]/g, '零').replace(/零{2,}/g, '零').replace(/零([亿|万])/g, '$1').replace(/零+元/, '元').replace(/亿零{0,3}万/, '亿').replace(/^元/, "零元");
+}
+
+
 Vue.filter('parseTime',parseTime)
 Vue.filter('formatTime',formatTime)
 Vue.filter('uppercaseFirst',uppercaseFirst)
 Vue.filter('toThousandFilter',toThousandFilter)
 Vue.filter('numberFormatter',numberFormatter)
 Vue.filter('timeAgo',timeAgo)
+Vue.filter('changeMoney',changeMoney)

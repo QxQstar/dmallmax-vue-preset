@@ -16,6 +16,10 @@ const menuObj = {
   setSlidMenu(value) {
     slidMenu = value
   },
+  clearData(){
+    menuObj.setTopMenu('')
+    menuObj.setSlidMenu('')
+  },
   /**
    * 获取菜单数据
    * @param {Boolean} isRefresh: 是否从接口中获取

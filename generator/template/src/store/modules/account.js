@@ -4,6 +4,9 @@ const state = {
 const mutations = {
   SET_USERINFO(state,userInfo){
     state.userInfo = userInfo;
+  },
+  RESET_STATE(state) {
+    state.userInfo = {}
   }
 };
 const actions = {

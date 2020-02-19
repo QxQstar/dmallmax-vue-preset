@@ -15,7 +15,17 @@ const modules = modulesFiles.keys().reduce((modules, modulePath) => {
 
 const store = new Vuex.Store({
   modules,
-  getters
+  getters,
+  mutations:{
+    /**
+     * 清空与这个登录账号相关的数据
+     * @constructor
+     */
+    RESET_USER_STATE(){
+      store.commit('account/RESET_STATE')
+      store.commit('menu/RESET_STATE')
+    }
+  }
 })
 
 export default store

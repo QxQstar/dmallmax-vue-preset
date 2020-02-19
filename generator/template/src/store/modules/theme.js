@@ -4,6 +4,9 @@ const state = {
 const mutations = {
   CHANGE_THEME:(state,theme) => {
     state.type = theme
+  },
+  RESET_STATE(state) {
+    state.type = ''
   }
 }
 const actions = {

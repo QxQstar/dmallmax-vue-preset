@@ -3,6 +3,7 @@ import cookie from '@/lib/cookie'
 import storage from '@/lib/localStorage'
 import menuHelper from './menu';
 import store from '@/store'
+import { routes } from '@/router'
 /**
  * 清空和登录账号相关的数据
  */
@@ -18,7 +19,7 @@ export function clearData() {
  */
 export function logout() {
   router.replace({
-    path:'/account/login'
+    path:routes.getValidPath('/account/login')
   });
   clearData();
 }

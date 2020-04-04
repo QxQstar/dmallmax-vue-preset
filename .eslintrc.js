@@ -9,6 +9,9 @@ module.exports = {
     parser: 'babel-eslint',
     sourceType: 'module'
   },
+  globals:{
+    fis:true
+  },
   extends: [
     'plugin:vue/strongly-recommended',
     'eslint:recommended'
